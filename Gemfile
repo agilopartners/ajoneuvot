@@ -5,6 +5,7 @@ gem 'rails', '3.0.4'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+gem 'rake', '~> 0.8.7'
 gem 'sqlite3-ruby', '1.3.2', :require => 'sqlite3'
 gem 'gravatar_image_tag', '1.0.0.pre2'
 gem 'will_paginate', '3.0.pre2'
@@ -12,6 +13,7 @@ gem 'jquery-rails', '>= 0.2.6'
 gem 'rack-cache', :require => 'rack/cache'
 gem 'dragonfly', '~>0.9.2'
 gem 'fog'
+gem 'abstract'
 # Use unicorn as the web server
 # gem 'unicorn'
 
