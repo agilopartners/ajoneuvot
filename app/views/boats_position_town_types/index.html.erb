@@ -1,0 +1,23 @@
+<h1>Listing boats_position_town_types</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @boats_position_town_types.each do |boats_position_town_type| %>
+  <tr>
+    <td><%= boats_position_town_type.name %></td>
+    <td><%= link_to 'Show', boats_position_town_type %></td>
+    <td><%= link_to 'Edit', edit_boats_position_town_type_path(boats_position_town_type) %></td>
+    <td><%= link_to 'Destroy', boats_position_town_type, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Boats position town type', new_boats_position_town_type_path %>

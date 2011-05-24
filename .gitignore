@@ -1,0 +1,14 @@
+.bundle
+.DS_Store
+.yardoc
+.rvmrc
+.powrc
+*tmproj
+ERD.pdf
+coverage*
+tmp
+doc
+config/database.yml
+db/*.sqlite3
+log/*.log
+public/system

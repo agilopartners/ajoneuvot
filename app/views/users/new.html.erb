@@ -1,0 +1,38 @@
+<h1 align="left">Registering</h1>
+
+<%= form_for(@user) do |f| %>
+ <%= render 'shared/error_messages', :object => f.object %>
+
+  <div  align="left"class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div  align="left"class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div  align="left"class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  </div>
+  <div  align="left"class="field">
+    <%= f.label :password_confirmation, "Confirmation" %><br />
+    <%= f.password_field :password_confirmation %>
+  </div>
+
+ <div class="field">
+    <%= f.label :Category %><br />
+   <div class="form_row">
+   <% [ 'I have read Ajoneuvoforum Terms of Use'].each do |theme| %>
+    <br><%= radio_button_tag 'theme', theme, @theme == theme %>
+    <%= label_tag "theme_#{theme}", theme.humanize %>
+  <% end %>
+</div>
+<br>
+</br>
+
+  <div  align="left" align="center"class="actions">
+    <%= f.submit "Save" %>
+  </div>
+<% end %>
+

@@ -1,0 +1,51 @@
+<h1>30 viimeisintä</h1>
+<!-- projects/index.rhtml -->
+<% form_tag boat_posts_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+
+
+
+
+<% end %>
+
+
+<table>
+  <tr>
+    <th>Merkki</th>
+    <th></th>
+    <th>Malli</th>
+    <th>Vuosimalli</th>
+    <th>Hinta</th>
+    <th>Moottori</th>
+    <th>Myyjä</th>
+    <th>Puhelin</th>
+    <th>Paikkakunta</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @boat_posts.each do |boat_post| %>
+  <tr>
+    <td><%= boat_post.boat_make.name %></td>
+    <td><%= boat_post.boat_cover_image.url %></td>
+    <td><%= boat_post.boat_model %></td>
+    <td><%= boat_post.boat_year_model %></td>
+    <td><%= boat_post.boat_asking_price %></td>
+    <td><%= boat_post.boat_engine_make_id %></td>
+    <td><%= boat_post.boat_user_name %></td>
+    <td><%= boat_post.boat_user_phone %></td>
+    <td><%= boat_post.boat_town_type.name %></td>
+    <td><%= link_to 'Show', boat_post %></td>
+    <td><%= link_to 'Edit', edit_boat_post_path(boat_post) %></td>
+    <td><%= link_to 'Destroy', boat_post, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Boat post', new_boat_post_path %>
