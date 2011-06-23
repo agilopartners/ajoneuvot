@@ -1,4 +1,4 @@
-EsimerkkiApp::Application.routes.draw do
+Ajoneuvot::Application.routes.draw do
   resources :machine_cover_image_names
 
   resources :machine_cover_image_uids
