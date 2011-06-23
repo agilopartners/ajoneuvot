@@ -103,6 +103,7 @@ GEM
     rdoc (3.6.1)
     rest-client (1.6.3)
       mime-types (>= 1.16)
+    rmagick (2.13.1)
     rspec (2.5.0)
       rspec-core (~> 2.5.0)
       rspec-expectations (~> 2.5.0)
@@ -154,6 +155,7 @@ DEPENDENCIES
   jquery-rails (>= 0.2.6)
   rack-cache
   rails (= 3.0.9)
+  rmagick
   rspec (= 2.5.0)
   rspec-rails (= 2.5.0)
   ruby-debug19

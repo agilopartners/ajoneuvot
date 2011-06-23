@@ -15,6 +15,7 @@ gem 'rack-cache', :require => 'rack/cache'
 gem 'dragonfly' #, '~>0.9.2'
 gem 'fog'
 gem 'abstract'
+gem 'rmagick'
 
 # Bundle the extra gems:
 # gem 'bj'
