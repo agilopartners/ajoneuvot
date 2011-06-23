@@ -12,6 +12,36 @@
 
 ActiveRecord::Schema.define(:version => 20110520085642) do
 
+  create_table "ads", :force => true do |t|
+    t.string   "type"
+    t.string   "make"
+    t.string   "model"
+    t.string   "subtype"
+    t.date     "yearmodel"
+    t.date     "registration"
+    t.date     "inspectiondate"
+    t.string   "color"
+    t.string   "colortype"
+    t.decimal  "price"
+    t.string   "registernumber"
+    t.text     "information"
+    t.string   "mileage"
+    t.decimal  "enginesize"
+    t.string   "drivetype"
+    t.string   "fuel"
+    t.string   "transmission"
+    t.decimal  "power"
+    t.string   "emission"
+    t.string   "topspeed"
+    t.decimal  "acceleration"
+    t.decimal  "consumption"
+    t.decimal  "weight"
+    t.string   "domicile"
+    t.string   "town"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "boat_asking_prices", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -148,6 +178,13 @@ ActiveRecord::Schema.define(:version => 20110520085642) do
 
   create_table "boat_total_owners", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "boat_town_type_sections", :force => true do |t|
+    t.string   "name"
+    t.integer  "boat_domicile_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -495,6 +532,13 @@ ActiveRecord::Schema.define(:version => 20110520085642) do
     t.datetime "updated_at"
   end
 
+  create_table "caravan_town_type_sections", :force => true do |t|
+    t.string   "name"
+    t.integer  "caravan_domicile_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "caravan_town_types", :force => true do |t|
     t.string   "name"
     t.integer  "caravan_domicile_type_id"
@@ -528,6 +572,21 @@ ActiveRecord::Schema.define(:version => 20110520085642) do
 
   create_table "caravan_year_models", :force => true do |t|
     t.date     "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "caravans", :force => true do |t|
+    t.integer  "industry_id"
+    t.integer  "focusing_section_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "cars", :force => true do |t|
+    t.string   "name"
+    t.integer  "type_id"
+    t.integer  "sub_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -567,26 +626,7 @@ ActiveRecord::Schema.define(:version => 20110520085642) do
     t.datetime "updated_at"
   end
 
-  create_table "dogs", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "domicile_type_sections", :force => true do |t|
-    t.string   "name"
-    t.integer  "boats_position_town_type_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "domicile_types", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "draughts", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -637,10 +677,10 @@ ActiveRecord::Schema.define(:version => 20110520085642) do
     t.datetime "updated_at"
   end
 
-  create_table "heights", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "images", :force => true do |t|
+    t.string  "name"
+    t.integer "width"
+    t.integer "height"
   end
 
   create_table "industries", :force => true do |t|
@@ -649,15 +689,16 @@ ActiveRecord::Schema.define(:version => 20110520085642) do
     t.datetime "updated_at"
   end
 
-  create_table "lengths", :force => true do |t|
+  create_table "machine_category_sections", :force => true do |t|
     t.string   "name"
+    t.integer  "machine_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "machine_category_sections", :force => true do |t|
+  create_table "machine_color_type_sections", :force => true do |t|
     t.string   "name"
-    t.integer  "machine_type_id"
+    t.integer  "Machine_color_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -781,8 +822,22 @@ ActiveRecord::Schema.define(:version => 20110520085642) do
     t.datetime "updated_at"
   end
 
+  create_table "machine_sub_type_sections", :force => true do |t|
+    t.string   "name"
+    t.integer  "machine_category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "machine_total_owners", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "machine_town_type_sections", :force => true do |t|
+    t.string   "name"
+    t.integer  "Machine_Domicile_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -846,6 +901,13 @@ ActiveRecord::Schema.define(:version => 20110520085642) do
     t.datetime "updated_at"
   end
 
+  create_table "model_sections", :force => true do |t|
+    t.string   "name"
+    t.integer  "make_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "moto_color_types", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -894,8 +956,27 @@ ActiveRecord::Schema.define(:version => 20110520085642) do
     t.datetime "updated_at"
   end
 
+  create_table "moto_fuel_types", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "moto_gearbox_types", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "moto_informations", :force => true do |t|
     t.text     "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "moto_make_sections", :force => true do |t|
+    t.string   "name"
+    t.integer  "type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -909,6 +990,13 @@ ActiveRecord::Schema.define(:version => 20110520085642) do
 
   create_table "moto_mileages", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "moto_model_sections", :force => true do |t|
+    t.string   "name"
+    t.integer  "make_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -958,6 +1046,13 @@ ActiveRecord::Schema.define(:version => 20110520085642) do
     t.datetime "updated_at"
   end
 
+  create_table "moto_town_type_sections", :force => true do |t|
+    t.string   "name"
+    t.integer  "moto_domicile_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "moto_town_types", :force => true do |t|
     t.string   "name"
     t.integer  "moto_domicile_type_id"
@@ -989,8 +1084,10 @@ ActiveRecord::Schema.define(:version => 20110520085642) do
     t.datetime "updated_at"
   end
 
-  create_table "notes", :force => true do |t|
-    t.text     "name"
+  create_table "pictures", :force => true do |t|
+    t.string   "name"
+    t.integer  "width"
+    t.integer  "height"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -1021,12 +1118,6 @@ ActiveRecord::Schema.define(:version => 20110520085642) do
     t.datetime "updated_at"
   end
 
-  create_table "storage_equipments", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "sub_cars", :force => true do |t|
     t.string   "name"
     t.integer  "car_id"
@@ -1051,13 +1142,6 @@ ActiveRecord::Schema.define(:version => 20110520085642) do
   create_table "sub_vehicles", :force => true do |t|
     t.string   "name"
     t.integer  "vehicle_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "subtype_sections", :force => true do |t|
-    t.string   "name"
-    t.integer  "type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -1120,28 +1204,10 @@ ActiveRecord::Schema.define(:version => 20110520085642) do
     t.datetime "updated_at"
   end
 
-  create_table "weights", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "widths", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "windows", :force => true do |t|
     t.string   "name"
     t.integer  "car_id"
     t.integer  "sub_car_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "year_models", :force => true do |t|
-    t.date     "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
