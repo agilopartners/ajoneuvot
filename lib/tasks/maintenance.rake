@@ -17,6 +17,7 @@ namespace :maintenance do
     end
         
     puts "total files after deleting: #{Dir.entries('.').size}"
+    
   
   end
   
