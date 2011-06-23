@@ -379,7 +379,6 @@ Ajoneuvot::Application.routes.draw do
 
   get "pages/post"
 
-  get "pages/dogs"
 
   get "pages/images"
    
